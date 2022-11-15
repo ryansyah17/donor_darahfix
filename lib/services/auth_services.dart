@@ -68,7 +68,8 @@ class AuthService extends ChangeNotifier {
     String? email,
     String? password,
   }) async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 1));
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     var url = Uri.parse('$baseUrl/login');
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
@@ -86,6 +87,8 @@ class AuthService extends ChangeNotifier {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       print(data['access_token']);
+
+      await preferences.setInt('initLogin', 1);
 
       User user = User(access_token: 'Bearer ' + data['access_token']);
 

@@ -38,16 +38,21 @@ class PendonorServices {
 
   void createPendonor(Pendonor p) async {
     var url = Uri.parse(baseUrl);
-    var headers = {'Content-Type': 'application/json'};
-    var body = jsonEncode(p.toJson());
+    var headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    };
 
+    var body = jsonEncode(p.toJson());
+    print(body);
     final response = await http.post(
       url,
       headers: headers,
       body: body,
     );
+    print(response.body);
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode <= 210 && response.statusCode >= 200) {
       getPendonor();
       Get.back();
     } else {

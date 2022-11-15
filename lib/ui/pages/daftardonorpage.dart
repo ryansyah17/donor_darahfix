@@ -590,7 +590,8 @@ class DaftarDonorPage extends GetView<DaftarDonorController> {
                                           controller.tekananDarah.text,
                                       tanggalDonor:
                                           controller.tanggalDonor.text,
-                                      kadarhb: controller.kadarHb.text));
+                                      kadarhb: controller.kadarHb.text,
+                                      idUsers: controller.idUsers.text));
                                 }
                               },
                               child: Container(

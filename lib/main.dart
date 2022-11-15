@@ -21,7 +21,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initLogin = preferences.getInt('initLogin');
-  await preferences.setInt('initLogin', 1);
+  // await preferences.setInt('initLogin', 1);
   runApp(MyApp());
 }
 

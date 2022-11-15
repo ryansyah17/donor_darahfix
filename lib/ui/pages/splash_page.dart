@@ -19,6 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     Timer(Duration(seconds: 3), () {
+      print(initLogin);
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(

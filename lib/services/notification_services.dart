@@ -21,7 +21,7 @@ class NotificationServices extends GetxController {
       body: body,
     );
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode <= 210 && response.statusCode >= 200) {
       getNotification();
       Get.back();
     } else {
